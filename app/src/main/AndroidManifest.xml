@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicsComponents">
-        <activity android:name=".activity.CardViews"></activity>
+        <activity android:name=".activity.Fragment"></activity>
+        <activity android:name=".activity.CardViews" />
         <activity android:name=".activity.RecyclerViewzinho" />
         <activity android:name=".activity.Views" />
         <activity android:name=".activity.AlertDialogsAndBars" />

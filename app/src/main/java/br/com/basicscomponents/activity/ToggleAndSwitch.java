@@ -14,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import br.com.basicscomponents.R;
 import br.com.basicscomponents.activity.AlertDialogsAndBars;
 
@@ -23,8 +25,7 @@ public class ToggleAndSwitch extends AppCompatActivity {
     private Switch switchPassword;
     private TextView textResult;
     private CheckBox checkPassword;
-    private Button btnToast;
-    private Button nxtPage;
+    private Button btnToast, nxtPage, btnFragment, btnSnack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,19 @@ public class ToggleAndSwitch extends AppCompatActivity {
         checkPassword = findViewById(R.id.check_pass);
 
         btnToast = findViewById(R.id.btn_toast);
+        btnSnack = findViewById(R.id.btn_snackbar);
+
+        btnSnack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Botão pressionado", Snackbar.LENGTH_LONG).setAction("alterar texto", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        btnSnack.setText("alterou a snack");
+                    }
+                }).setActionTextColor(getResources().getColor(R.color.design_default_color_error)).show();
+            }
+        });
 
         addListener();
 
@@ -48,13 +62,22 @@ public class ToggleAndSwitch extends AppCompatActivity {
                 startActivity(toggleSwitch);
             }
         });
+
+        btnFragment = findViewById(R.id.btn_fragments);
+        btnFragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Fragment.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    public void toastBtn(View view){
+    public void toastBtn(View view) {
         Toast.makeText(this, "TOAST MAROTO", Toast.LENGTH_SHORT).show();
     }
 
-    public void toastBtnImage(View view){
+    public void toastBtnImage(View view) {
         Toast toast = new Toast(this);
         ImageView image = new ImageView(this);
         image.setImageResource(R.drawable.ic_baseline_electric_scooter_24);
@@ -64,10 +87,10 @@ public class ToggleAndSwitch extends AppCompatActivity {
 
     }
 
-    public void sendPass(View view){
-        if (switchPassword.isChecked()){
+    public void sendPass(View view) {
+        if (switchPassword.isChecked()) {
             textResult.setText("Switch Ligado");
-        }else{
+        } else {
             textResult.setText("Switch Desligado");
         }
 //        if (togglePassword.isChecked()){
@@ -77,13 +100,13 @@ public class ToggleAndSwitch extends AppCompatActivity {
 //        }
     }
 
-    public void addListener(){
+    public void addListener() {
         checkPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
+                if (isChecked) {
                     textResult.setText("Ligado");
-                }else{
+                } else {
                     textResult.setText("Desligado");
                 }
             }

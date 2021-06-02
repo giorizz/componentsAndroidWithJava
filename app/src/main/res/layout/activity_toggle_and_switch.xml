@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="30dp"
-    tools:context=".activity.ToggleAndSwitch">
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="30dp">
 
     <TextView
         android:id="@+id/textView"
@@ -73,6 +77,13 @@
         android:text="toastzinho" />
 
     <Button
+        android:id="@+id/btn_snackbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Snackbar" />
+
+    <Button
         android:id="@+id/btn_toast2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -81,13 +92,20 @@
         android:text="Image Toast" />
 
     <Button
+        android:id="@+id/btn_fragments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Fragments" />
+
+
+    <Button
         android:id="@+id/btn_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Próxima Página"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</LinearLayout>
+        android:text="Próxima Página" />
+
+    </LinearLayout>
+
+</ScrollView>
